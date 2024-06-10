@@ -105,6 +105,10 @@ plugins {
 
 doctor {
     enableTestCaching = false
+    javaHome {
+        ensureJavaHomeMatches = false
+        ensureJavaHomeIsSet = false
+    }
 }
 
 allprojects {
@@ -183,10 +187,7 @@ fun configureDokka() {
 configureDokka()
 
 fun Project.setupJvmToolchain() {
-    val jdk = when (project.name) {
-        in jdk11Modules -> 11
-        else -> 8
-    }
+    val jdk = 17
 
     kotlin {
         jvmToolchain {

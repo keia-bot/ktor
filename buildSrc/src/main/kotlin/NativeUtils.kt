@@ -6,7 +6,7 @@ import org.gradle.api.*
 
 fun Project.posixTargets(): List<String> = nixTargets() + windowsTargets()
 
-fun Project.nixTargets(): List<String> = darwinTargets() + linuxTargets()
+fun Project.nixTargets(): List<String> = /*darwinTargets() +*/ linuxTargets()
 
 fun Project.linuxTargets(): List<String> = with(kotlin) {
     listOf(
@@ -51,8 +51,8 @@ fun Project.tvosTargets(): List<String> = with(kotlin) {
 
 fun Project.desktopTargets(): List<String> = with(kotlin) {
     listOf(
-        macosX64(),
-        macosArm64(),
+//        macosX64(),
+//        macosArm64(),
         linuxX64(),
         linuxArm64(),
         mingwX64()

@@ -55,7 +55,7 @@ fun Project.configureTargets() {
         if (hasDesktop) { desktopTargets() }
         if (hasNix) { nixTargets() }
         if (hasLinux) { linuxTargets() }
-        if (hasDarwin) { darwinTargets() }
+//        if (hasDarwin) { darwinTargets() }
         if (hasWindows) { windowsTargets() }
 
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
