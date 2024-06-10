@@ -15,11 +15,11 @@ internal actual fun UDPSocketBuilder.Companion.connectUDP(
     assignOptions(options)
     nonBlocking()
 
-    if (java7NetworkApisAvailable) {
-        bind(localAddress?.toJavaAddress())
-    } else {
-        socket().bind(localAddress?.toJavaAddress())
+    if (localAddress != null) {
+        val java = localAddress.toJavaAddress()
+        if (java7NetworkApisAvailable) bind(java) else socket().bind(java)
     }
+
     connect(remoteAddress.toJavaAddress())
 
     return DatagramSocketImpl(this, selector)
